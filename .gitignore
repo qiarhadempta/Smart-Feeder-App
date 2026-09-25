@@ -46,3 +46,13 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# Executables & Binaries
+*.exe
+*.apk
+*.aab
+
+# Flutter / Firebase build outputs
+build/
+.dart_tool/
+firebase.exe
