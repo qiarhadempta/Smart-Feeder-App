@@ -1,23 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'screens/main_navigation.dart';
 
 void main() async {
-  // Wajib dipanggil sebelum menginisialisasi plugin native
   WidgetsFlutterBinding.ensureInitialized();
-
-  try {
-    // Inisialisasi Firebase
-    await Firebase.initializeApp();
-    debugPrint("------------------------------------------------");
-    debugPrint("🔥 FIREBASE BERHASIL TERHUBUNG DENGAN SUKSES! 🔥");
-    debugPrint("------------------------------------------------");
-  } catch (e, stacktrace) {
-    debugPrint("------------------------------------------------");
-    debugPrint("❌ GAGAL MENGHUBUNGKAN FIREBASE:");
-    debugPrint(e.toString());
-    debugPrint("------------------------------------------------");
-  }
-
+  await Firebase.initializeApp();
   runApp(const SmartFeederApp());
 }
 
@@ -33,20 +20,7 @@ class SmartFeederApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Status Firebase'),
-          backgroundColor: Colors.teal,
-          foregroundColor: Colors.white,
-        ),
-        body: const Center(
-          child: Text(
-            'Cek konsol terminal di Android Studio\nuntuk melihat status koneksi Firebase.',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 16),
-          ),
-        ),
-      ),
+      home: const MainNavigation(),
     );
   }
 }
